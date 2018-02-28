@@ -1,0 +1,7 @@
+type Tag {
+  id: ID
+  organisationId: ID
+  name: String
+
+  users: [OxilUser]
+}

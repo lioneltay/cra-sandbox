@@ -1,0 +1,15 @@
+type ChallengerNews {
+  id: ID!
+  organisationId: ID!
+  groupId: ID
+
+  createdAt: String
+  updatedAt: String
+
+  title: String
+  thumbnailURL: String
+  content: String
+  published: Boolean
+  sticky: Boolean
+  emphasized: Boolean
+}

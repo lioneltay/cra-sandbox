@@ -1,0 +1,22 @@
+input OxilUserListInput {
+    name: String
+    description: String
+}
+
+input AssignToUserListInput {
+    userIds: [ID!]!
+    listId: ID!
+}
+
+extend type Query {
+    oxilUserLists(orgId: ID!): [OxilUserList]
+    oxilUserList(orgId: ID!, id: ID!): OxilUserList
+}
+
+extend type Mutation {
+    assignToUserList(orgId: ID!, input: AssignToUserListInput): OxilUserList
+    unassignToUserList(orgId: ID!, input: AssignToUserListInput!): OxilUserList
+    createOxilUserList(orgId: ID!, userIds: [ID!], input: OxilUserListInput): OxilUserList
+    updateOxilUserList(orgId: ID!, id: ID!, input: OxilUserListInput): OxilUserList
+    deleteOxilUserList(orgId: ID!, id: ID!): ID
+}

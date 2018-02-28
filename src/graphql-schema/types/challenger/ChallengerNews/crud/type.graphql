@@ -1,0 +1,43 @@
+input BooleanFilters {
+  equals: Boolean
+}
+
+input ChallengerNewsFilters {
+  published: BooleanFilters
+}
+
+extend type Query {
+  challengerNews(orgId: ID!, newsId: ID!, groupId: ID): ChallengerNews
+  challengerNewsAll(orgId: ID!, groupId: ID, filters: ChallengerNewsFilters): [ChallengerNews]
+}
+
+extend type Mutation {
+  createNews(
+    orgId: ID!,
+    groupId: ID,
+    title: String,
+    thumbnailURL: String,
+    content: String,
+    published: Boolean,
+    sticky: Boolean,
+    emphasized: Boolean
+  ): ChallengerNews
+
+  updateNews(
+    orgId: ID!,
+    newsId: ID!,
+    groupId: ID,
+    title: String,
+    thumbnailURL: String,
+    content: String,
+    published: Boolean,
+    sticky: Boolean,
+    emphasized: Boolean
+  ): ChallengerNews
+
+  deleteNews(
+    orgId: ID!,
+    newsId: ID!,
+    groupId: ID,
+  ): ID
+}

@@ -1,0 +1,4 @@
+extend type Query {
+  payments: [Payment]
+  payment(id: ID): Payment
+}

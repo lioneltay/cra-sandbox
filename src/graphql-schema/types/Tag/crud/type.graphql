@@ -1,0 +1,13 @@
+extend type Query {
+    tag(orgId: ID!, tagId: ID!): Tag
+    tags(orgId: ID!): [Tag]
+}
+
+extend type Mutation {
+    createTag(orgId: ID!, name: String!): Tag
+    updateTag(orgId: ID!, tagId: ID!, name: String!): Tag
+    deleteTag(orgId: ID!, tagId: ID!): ID
+    assignTagsToUser(orgId: ID!, tags: [String!]!, userId: ID!): OxilUser
+    setUserTags(orgId: ID!, tags: [String!]!, userId: ID!): OxilUser
+    unassignTagsFromUser(orgId: ID!, tags: [String!]!, userId: ID!): OxilUser
+}

@@ -1,0 +1,18 @@
+type Payment {
+  createdAt: String,
+  updatedAt: String,
+  id: ID
+  organisationId: ID,
+  donorId: ID,
+  groupId: ID,
+  userId: ID,
+  attendeeId: ID,
+  eventId: ID,
+  orderId: ID,
+
+  firstName: String
+  lastName: String
+  currency: String
+  receiptId: String
+  amount: Int
+}

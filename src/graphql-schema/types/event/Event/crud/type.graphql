@@ -1,0 +1,4 @@
+extend type Query {
+    event(orgId: ID!, id: ID!): Event
+    events(orgId: ID!): [Event]
+}

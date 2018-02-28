@@ -1,0 +1,12 @@
+type EventTicket {
+    id: ID
+    eventId: ID
+
+    ticket: EventTicketType
+    event: Event
+
+    code: String
+    checkInDate: String
+    formData: String
+    groupBookingFormData: String
+}

@@ -1,0 +1,51 @@
+type OxilUser {
+    id: ID!
+    organisationId: ID
+    # id of donor instance only for backward compatibility...
+    archived: Boolean
+    donorId: ID
+    hasAccount: Boolean
+    isAttendee: Boolean
+    isDonor: Boolean
+    isFormRespondent: Boolean
+    isSurveyRespondent: Boolean
+
+    createdAt: String
+    updatedAt: String
+    email: String
+    firstName: String
+    lastName: String
+    fullName: String
+    phoneNumber: String
+    joinDate: String
+    address: String
+    suburb: String
+    state: String
+    country: String
+    postCode: String
+
+    # Number of donations
+    donationsCount: Int
+    # Total Donations in cents
+    totalDonations: Int
+    donations: [Payment]
+
+    # eventTickets: [EventTicket]
+
+    totalPayments: Int
+    formResponseCount: Int
+    surveyResponseCount: Int
+
+    # Relations
+    # ticketEventPurchases: [Payments]
+    # regoEventPurchases: [Payments]
+    # attendedEvents: [Events]
+
+    eventTickets: [EventTicket]
+    formResponses: [FormResponse]
+    surveyResponses: [SurveyResponse]
+
+    userLists: [OxilUserList]
+
+    tags: [Tag]
+}

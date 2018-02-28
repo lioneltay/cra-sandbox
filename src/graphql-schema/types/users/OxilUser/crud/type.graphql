@@ -1,0 +1,81 @@
+input OxilUserInput {
+    email: String
+    firstName: String
+    lastName: String
+    phoneNumber: String
+    address: String
+    suburb: String
+    state: String
+    country: String
+    postCode: String
+}
+
+input Stringfilters {
+  text: String # matches all nodes with exact value
+  text_not: String # matches all nodes with different value
+  text_in: [String!] # matches all nodes with value in the passed list
+  text_not_in: [String!] # matches all nodes with value not in the passed list
+  text_lt: String # matches all nodes with lesser value
+  text_lte: String # matches all nodes with lesser or equal value
+  text_gt: String # matches all nodes with greater value
+  text_gte: String # matches all nodes with greater or equal value
+  text_contains: String # matches all nodes with a value that contains given substring
+  text_not_contains: String # matches all nodes with a value that does not contain given substring
+  text_starts_with: String # matches all nodes with a value that starts with given substring
+  text_not_starts_with: String # matches all nodes with a value that does not start with given substring
+  text_ends_with: String # matches all nodes with a value that ends with given substring
+  text_not_ends_with: String # matches all nodes with a value that does not end with given substring
+}
+
+input StringFilters {
+    gt: String
+}
+
+input DateFilters {
+    gt: String
+}
+
+input IntFilters {
+    gt: Int
+}
+
+input OxilUserFilters {
+    AND: [OxilUserFilters]
+    OR: [OxilUserFilters]
+    firstName: StringFilters
+    joinDate: DateFilters
+    totalDonations: IntFilters
+    donationsCount: IntFilters
+}
+
+input OxilUserOrderBy {
+    joinDate: String
+    totalDonations: String
+}
+
+# query {
+#   someQuery(filters: {
+#     OR: [
+#       [{ AND: [
+#         name: { equals: "bob" }
+#         userName: { in: ["bob", "Bob" "BOB"] }
+#       ]}
+#       { id: { equals: "453kasjf" }}
+#       { joinDate: { gt: "2017-02-22T00:34:56.811Z" }}
+#     ]
+#   }) {
+#     name
+#   }
+# }
+
+extend type Query {
+    oxilUsers(orgId: ID!, limit: Int, filters: OxilUserFilters, orderBy: OxilUserOrderBy): [OxilUser]
+    oxilUser(orgId: ID!, id: ID!): OxilUser
+    updateOxilUser(orgId: ID!, id: ID!, userInput: OxilUserInput): OxilUser
+}
+
+extend type Mutation {
+    updateOxilUser(orgId: ID!, id: ID!, userInput: OxilUserInput): OxilUser
+    archiveOxilUsers(orgId: ID!, ids: [ID]!): [OxilUser]
+    unarchiveOxilUsers(orgId: ID!, ids: [ID]!): [OxilUser]
+}

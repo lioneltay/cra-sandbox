@@ -1,0 +1,10 @@
+type User {
+  id: ID
+  firstName: String
+  lastName: String
+  fullName: String
+  email: String
+  createdAt: String
+  updatedAt: String
+  nutritionLogs: [NutritionLog]
+}

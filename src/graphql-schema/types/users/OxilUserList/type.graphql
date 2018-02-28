@@ -1,0 +1,10 @@
+type OxilUserList {
+  id: ID
+  organisationId: ID
+  updatedAt: String
+  createdAt: String
+  name: String
+  description: String
+  users: [OxilUser!]
+  numberOfUsers: Int
+}

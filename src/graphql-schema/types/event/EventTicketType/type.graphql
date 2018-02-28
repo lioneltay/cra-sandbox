@@ -1,0 +1,10 @@
+type EventTicketType {
+    # A Ticket TYPE of an event not an actualy ticket
+    id: ID
+    eventId: ID
+
+    description: String
+    admits: String
+    name: String
+    quantity: Int
+}

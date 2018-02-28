@@ -1,0 +1,4 @@
+extend type Query {
+  nutritionLogs: [NutritionLog]
+  nutritionLog(id: ID!): NutritionLog
+}

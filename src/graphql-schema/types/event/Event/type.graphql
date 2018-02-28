@@ -1,0 +1,10 @@
+type Event {
+    id: ID
+    organisationId: ID
+
+    name: String
+    description: String
+    additionalForm: String
+
+    # tickets: [Ticket]
+}

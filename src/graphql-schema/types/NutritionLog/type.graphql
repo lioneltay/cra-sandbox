@@ -1,0 +1,12 @@
+type NutritionLog {
+  id: ID
+  userId: ID
+  cardId: ID
+  foodId: ID
+  amount: Int
+  isComboCard: Boolean
+  isUserCreatedCard: Boolean
+  createdAt: String
+  updatedAt: String
+  user: User
+}
